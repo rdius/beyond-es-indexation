@@ -8,7 +8,7 @@
 -   taxon_phenotypes = "./data-examples/phenotype-relations.full.tsv"
 -   taxon_uses = "./data-examples/uses-relations.full.tsv"
 ```
-#### Build the Jsonl file by calling :
+#### Build the Jsonl file by using :
 
 ```
 beyond_relations_preprocess.ipynb
