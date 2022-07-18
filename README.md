@@ -1,2 +1,2 @@
 # beyond-es-indexation
-![alt tag](./indexation.png)
+![alt tag](./beyond.png)
