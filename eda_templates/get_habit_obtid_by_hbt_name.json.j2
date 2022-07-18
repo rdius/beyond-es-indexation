@@ -1,0 +1,53 @@
+{
+  "fields": [
+"document.batch",
+       "document.canonical_habitat", "document.canonical_microorganism",
+       "document.canonical_phenotype", "document.canonical_use",
+       "document.form_habitat", "document.form_microorganism",
+       "document.form_phenotype", "document.form_use",
+       "document.lemma_microorganism", "document.lemma_phenotype",
+       "document.lemma_use", "document.obtid_habitat",
+       "document.obtid_phenotye", "document.obtid_use",
+       "document.offset_habitat", "document.offset_microorganism",
+       "document.offset_phenotype", "document.offset_use",
+       "document.paths_habitat", "document.paths_microorganism",
+       "document.paths_phenotype", "document.paths_use", "document.pmid",
+       "document.section", "document.taxid", "host", "path", "type",
+    {
+      "field": "@timestamp",
+      "format": "strict_date_optional_time"
+    }
+  ],
+  "_source": false,
+  "query": {
+    "bool": {
+      "must": [],
+      "filter": [
+        {
+          "bool": {
+            "should": [
+              {% for kw in list_of_keywords %}
+              {
+                "bool": {
+                  "should": [
+                    {
+                      "term": {
+                        "document.form_habitat.keyword": "{{ kw }}"
+                      }
+                    }
+                  ],
+                  "minimum_should_match": 1
+                }
+              }{{ ", " if not loop.last else "" }}
+              {% endfor %}
+            ],
+            "minimum_should_match": 1
+          }
+        }
+      ],
+      "should": [],
+      "must_not": []
+    }
+  }
+}
+

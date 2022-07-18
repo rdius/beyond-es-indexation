@@ -1,0 +1,42 @@
+{
+  "fields": [ 
+    "document.form_microorganism",
+    "document.taxid",
+    {
+      "field": "@timestamp",
+      "format": "strict_date_optional_time"
+    }
+  ],
+  "_source": false,
+  "query": {
+    "bool": {
+      "must": [],
+      "filter": [
+        {
+          "bool": {
+            "should": [
+              {% for kw in list_of_keywords %}
+              {
+                "bool": {
+                  "should": [
+                    {
+                      "term": {
+                        "document.form_microorganism.keyword": "{{ kw }}"
+                      }
+                    }
+                  ],
+                  "minimum_should_match": 1
+                }
+              }{{ ", " if not loop.last else "" }}
+              {% endfor %}
+            ],
+            "minimum_should_match": 1
+          }
+        }
+      ],
+      "should": [],
+      "must_not": []
+    }
+  }
+}
+
