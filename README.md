@@ -1,5 +1,5 @@
 # beyond-es-indexation
-![alt tag](./beyond.png)
+![alt tag](./img/beyond.png)
 
 #### Please, provide the data-examples folder with these files: 
 
