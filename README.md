@@ -1,5 +1,5 @@
 # beyond-es-indexation
-![alt tag](./beyond.png)
+![alt tag](./img/beyond.png)
 
 #### Please, provide the data-examples folder with these files: 
 
@@ -42,3 +42,39 @@ sudo systemctl start elasticsearch.service #start lesaticserach
 ```
 sudo systemctl start kibana.service #start kibana
 ```
+------------------------------------------------------------------------------
+
+
+# Dasboard for Beyond Advanced Queries
+![alt tag](./img/queries.png)
+
+### Dependances : 
+
+> This app use [streamlit](https://docs.streamlit.io/library/get-started/installation) as fontend. Use pip to install it
+
+```
+pip install streamlit
+```
+
+> To run the app
+
+```
+streamlit run beyond_app.py --global.dataFrameSerialization="legacy"
+```
+
+> ELK shoud be already installed & Data should be already indexed on an existing Index
+---
+
+### Interface & Examples
+---
+
+![alt tag](./img/q1.png)
+---
+
+![alt tag](./img/q2.png)
+---
+
+![alt tag](./img/q3.png)
+---
+
+![alt tag](./img/q4.png)
