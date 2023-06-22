@@ -127,11 +127,6 @@ def GetMicroNCBI(jinja_env, es_url, index_es, list_of_micro_name):
     headers = {'content-type': 'application/json'}
     template = jinja_env.get_template("get_micro_ncbi_by_micro_name.json.j2")
     query = template.render(list_of_keywords=list_of_micro_name)
-    """global r
-    r = requests.get(es_url + index_es + "/_search?scroll=1m&size=10000",  # context for scrolling up to 1 minute
-                         data=query,
-                         headers=headers,
-                         )"""
     try:
         r = requests.get(es_url + index_es + "/_search?scroll=1m&size=10000",  # context for scrolling up to 1 minute
                          data=query,
